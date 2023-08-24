@@ -15,3 +15,12 @@ Then connect to SOCKS proxy through through `localhost:1080` / `local.docker:108
 ```bash
 curl --proxy socks5h://127.0.0.1:1080 ipinfo.io
 ```
+
+If you cannot access the LAN, you can use **socat** to forward
+
+```bash
+# debian
+sudo apt-get update
+sudo apt-get install socat
+sudo socat TCP-LISTEN:1081,fork TCP:127.0.0.1:1080
+```
