@@ -24,3 +24,31 @@ sudo apt-get update
 sudo apt-get install socat
 sudo socat TCP-LISTEN:1081,fork TCP:127.0.0.1:1080
 ```
+
+create service
+```bash
+sudo nano /etc/systemd/system/socat.service
+```
+set service
+```makfile
+[Unit]
+Description=Socat TCP Port Forwarding
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/socat TCP-LISTEN:1081,fork TCP:127.0.0.1:10081
+Restart=always
+
+[Install]
+WantedBy=default.target
+```
+reload
+```
+sudo systemctl daemon-reload
+sudo systemctl enable socat.service
+sudo systemctl start socat.servic
+sudo systemctl status socat.service
+```
+
+
+
