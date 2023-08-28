@@ -46,7 +46,7 @@ reload
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable socat.service
-sudo systemctl start socat.servic
+sudo systemctl start socat.service
 sudo systemctl status socat.service
 ```
 
